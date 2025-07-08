@@ -14,10 +14,14 @@ jobs:
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1  # Fetch all history for all branches and tags
 
       - name: Clone remote repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git clone git@github.com:chinhld12/websites-engine.git
+          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/chinhld12/websites-engine.git
           cd websites-engine
           git checkout main
 
