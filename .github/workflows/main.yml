@@ -51,7 +51,7 @@ jobs:
         run: pnpm build
         env:
           # This is the base path for the static site, adjust as needed
-          REPO_CONTENT: git@github.com:${{ github.repository }}.git
+          REPO_CONTENT: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
