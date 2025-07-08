@@ -18,6 +18,16 @@ jobs:
         with:
           fetch-depth: 1  # Fetch all history for all branches and tags
 
+      - name: Remove existing files
+        run: |
+          # Copy all files to .tmp-content
+          mkdir -p .tmp-content
+          cp -R * .tmp-content
+          # Remove all files in the current directory except .tmp-content
+          find . -mindepth 1 -maxdepth 1 ! -name '.tmp-content' -exec rm -rf {} +
+          # Move .tmp-content back to content directory
+          mv .tmp-content/* content/
+
       - name: Clone remote repository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
