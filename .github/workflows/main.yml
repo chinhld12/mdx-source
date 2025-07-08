@@ -1,7 +1,12 @@
 name: Clone Remote Repository
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.md'
+      - '**/*.mdx'
 
 jobs:
   clone-repo:
