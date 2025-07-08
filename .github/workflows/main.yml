@@ -52,6 +52,7 @@ jobs:
         env:
           # This is the base path for the static site, adjust as needed
           REPO_CONTENT: git@github.com:${{ github.repository }}.git
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
