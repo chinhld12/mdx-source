@@ -26,7 +26,7 @@ jobs:
           # Remove all files in the current directory except .tmp-content
           find . -mindepth 1 -maxdepth 1 ! -name '.tmp-content' -exec rm -rf {} +
           # Move .tmp-content back to content directory
-          mv .tmp-content/* content/
+          mv .tmp-content content
 
       - name: Clone remote repository
         env:
